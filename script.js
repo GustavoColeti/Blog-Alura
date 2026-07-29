@@ -1,15 +1,17 @@
-// 1. Alternar Modo Escuro (Dark Mode)
-const btnTema = document.getElementById("btn-tema");
+// 1. Interação do Botão Flutuante para alternar entre Tema Claro e Escuro
+const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
 
-btnTema.addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-    
-    if (document.body.classList.contains("dark-mode")) {
-        btnTema.textContent = "☀️ Modo Claro";
+btnTemaEscuro.addEventListener("click", mudaTema);
+
+function mudaTema() {
+    const corpoPagina = document.body;
+
+    if (corpoPagina.classList.contains("tema-escuro")) {
+        corpoPagina.classList.remove("tema-escuro");
     } else {
-        btnTema.textContent = "🌙 Modo Escuro";
+        corpoPagina.classList.add("tema-escuro");
     }
-});
+}
 
 // 2. Interatividade dos Botões de Reação (com limite de 1 curtida por botão)
 const botoes = document.querySelectorAll(".interacoes button");
