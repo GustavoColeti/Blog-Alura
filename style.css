@@ -1,5 +1,5 @@
 /* =========================================================
-   1. DEFINIÇÃO DAS VARIÁVEIS NO :ROOT (MODO CLARO / PADRÃO)
+   1. DEFINIÇÃO DAS VARIÁVEIS NO :ROOT (MODO CLARO)
    ========================================================= */
 :root {
     --cor-primaria: #183C63;
@@ -9,30 +9,29 @@
     --cor-contraste: #f3eef7;
     --cor-botao: #f9f9f9;
     --cor-pagina: #f4f4f9;
+    --cor-destaque: #ff6b6b;
+    --cor-sucesso: #2ec4b6;
     --fonte-texto: 'Segoe UI', sans-serif;
 }
 
-/* =========================================================
-   TRANSIÇÃO GLOBAL DE CORES
-   ========================================================= */
+/* Transição global suave para trocas de tema */
 * {
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* =========================================================
    2. VARIÁVEIS PARA O MODO ESCURO (.tema-escuro)
    ========================================================= */
 body.tema-escuro {
-    --cor-primaria: #c9e3ff;  
+    --cor-primaria: #0f253e;  
     --cor-secundaria: #61dafb;
     --cor-fundo: #1e1e1e;     
     --cor-texto: #ffffff;    
     --cor-contraste: #e0e0e0;
     --cor-botao: #2d2d2d;
-    --cor-pagina: #151428;   
+    --cor-pagina: #121212;   
 }
 
-/* Estilos específicos no Modo Escuro */
 .tema-escuro a {
     color: var(--cor-secundaria);
 }
@@ -46,112 +45,135 @@ body.tema-escuro {
 }
 
 .tema-escuro header #titulo-principal {
-    color: var(--cor-primaria);
+    color: #ffffff;
 }
 
-/* Estilo específico para o botão quando o tema escuro estiver ativo */
 .tema-escuro .btn-tema-escuro {
     background-color: var(--cor-secundaria);
+    color: #000000;
 }
 
 /* =========================================================
-   3. ESTILOS GERAIS DO SITE
+   3. ESTILOS GERAIS DA APLICAÇÃO
    ========================================================= */
 body {
     max-width: 100vw;
     font-family: var(--fonte-texto);
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: var(--cor-pagina);
     color: var(--cor-texto);
 }
 
-/* Cabeçalho */
 header {
     background-color: var(--cor-primaria);
-    color: var(--cor-contraste);
-    padding: 2.5rem 1rem;
+    color: #ffffff;
+    padding: 2rem 1rem;
     text-align: center;
 }
 
 .header-conteudo {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 #titulo-principal {
-    text-align: center;
     margin-bottom: 0.5rem;
     font-size: 2.2rem;
-    color: #ffffff;
 }
 
-/* Botão Flutuante de Alternância de Tema */
-.btn-tema-escuro {
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    font-size: 32px;
-    padding: 12px;
-    background-color: var(--cor-primaria);
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 1000;
-}
-
-.btn-tema-escuro:hover {
-    transform: scale(1.1);
-}
-
-/* Container Flexbox dos Posts */
 main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Card Principal de Prioridade do Dia */
+.card-prioridade {
+    background-color: var(--cor-fundo);
+    border-left: 6px solid var(--cor-destaque);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 2rem;
+}
+
+.tag-urgente {
+    background-color: var(--cor-destaque);
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.acoes-foco {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.btn-iniciar {
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.timer-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.subtitulo-secao {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Grid de Cards dos Materiais */
+.grid-materiais {
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem;
+    gap: 20px;
     justify-content: center;
-    background-color: var(--cor-pagina);
 }
 
-/* Cards (Article) com Sombra Suave */
 article.card-post {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    /* Efeito de profundidade e elevação usando sombra */
+    position: relative;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    
-    margin: 16px;
-    gap: 16px;
-    padding: 16px;
-    
-    flex: 1 1 25%;
+    padding: 1.5rem;
+    flex: 1 1 280px;
     background: var(--cor-fundo);
     border-radius: 8px;
 }
 
-.artigo-imagem {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+.tipo-badge {
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
+
+.badge-pdf { background-color: #e74c3c; color: white; }
+.badge-video { background-color: #ff0000; color: white; }
+.badge-foto { background-color: #27ae60; color: white; }
 
 .artigo-autor {
     font-weight: bold;
     color: var(--cor-secundaria);
     font-size: 0.95rem;
-}
-
-.artigo-fonte {
-    font-size: 0.9rem;
-    margin-top: -5px;
 }
 
 .artigo-fonte a {
@@ -160,42 +182,77 @@ article.card-post {
     font-weight: bold;
 }
 
-.artigo-fonte a:hover {
-    opacity: 0.8;
-}
-
-/* Botões de Reação */
 .interacoes {
-    display: flex;
-    gap: 10px;
     margin-top: auto;
+    padding-top: 10px;
 }
 
-button {
+.btn-concluir {
     background-color: var(--cor-botao);
     color: var(--cor-texto);
     border: 1px solid var(--cor-secundaria);
     padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: transform 0.1s, background-color 0.2s;
 }
 
-button:hover {
-    opacity: 0.9;
+.btn-concluir.concluido {
+    background-color: var(--cor-sucesso);
+    color: white;
+    border-color: var(--cor-sucesso);
 }
 
-button:active {
-    transform: scale(0.95);
+/* Card de Feedback do Protótipo */
+.card-feedback {
+    background: var(--cor-fundo);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-button span {
+.campo-pergunta {
+    margin-bottom: 1rem;
+}
+
+.campo-pergunta label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    margin-left: 5px;
 }
 
-/* Rodapé */
+.campo-pergunta select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#btn-salvar-feedback {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Botão Flutuante de Tema */
+.btn-tema-escuro {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    font-size: 32px;
+    padding: 12px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
 footer {
     text-align: center;
     padding: 1.5rem;
