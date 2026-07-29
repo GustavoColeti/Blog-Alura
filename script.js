@@ -1,25 +1,31 @@
-// Seleciona todos os botões da página
-const botoes = document.querySelectorAll("button");
+// 1. Alternar Modo Escuro (Dark Mode)
+const btnTema = document.getElementById("btn-tema");
 
-// Para cada botão, criamos um controle de curtida independente
+btnTema.addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+    
+    if (document.body.classList.contains("dark-mode")) {
+        btnTema.textContent = "☀️ Modo Claro";
+    } else {
+        btnTema.textContent = "🌙 Modo Escuro";
+    }
+});
+
+// 2. Interatividade dos Botões de Reação (com limite de 1 curtida por botão)
+const botoes = document.querySelectorAll(".interacoes button");
+
 botoes.forEach(function (botao) {
     let curtiu = false;
 
-    botao.addEventListener("click", botaoClicado);
-
-    function botaoClicado() {
-        console.log("fui clicado");
+    botao.addEventListener("click", function() {
         let texto = botao.querySelector("span");
 
-        // Se ainda não curtiu, aumenta o número e marca como true
         if (curtiu === false) {
             texto.textContent++;
             curtiu = true;
-        } 
-        // Se já curtiu, diminui o número e volta para false
-        else {
+        } else {
             texto.textContent--;
             curtiu = false;
         }
-    }
+    });
 });

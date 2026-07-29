@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog Simples</title>
+    <title>Meu Blog Tech</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Meu Blog Pessoal</h1>
-        <p>Bem-vindo ao meu espaço na web!</p>
+        <div class="header-conteudo">
+            <h1>Meu Blog Tech</h1>
+            <p>Conhecimentos, curiosidades e novidades sobre tecnologia e programação.</p>
+            <button id="btn-tema" class="btn-tema">🌙 Modo Escuro</button>
+        </div>
     </header>
 
     <main>
-        <article>
-            <img src="https://via.placeholder.com/80" alt="Foto do autor" class="artigo-imagem">
-            <div>
-                <h2>Meu primeiro post</h2>
+        <article class="card-post">
+            <img src="imagens/tecnologia.jpg" alt="Foto do autor Marcelo" class="artigo-imagem">
+            <div class="artigo-conteudo">
+                <h2>Como começar na programação em 2026?</h2>
                 <p class="artigo-autor">Por: Marcelo Paludetto</p>
-                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+                <p>Boas-vindas ao meu blog! Focar no básico de HTML, CSS e JavaScript é o melhor caminho para construir uma base sólida no desenvolvimento web.</p>
                 <div class="interacoes">
                     <button>❤️ <span>0</span></button>
                     <button>👍 <span>0</span></button>
@@ -27,12 +30,25 @@
             </div>
         </article>
 
-        <article>
-            <img src="https://via.placeholder.com/80" alt="Foto do autor" class="artigo-imagem">
-            <div>
-                <h2>Meu segundo post</h2>
-                <p class="artigo-autor">Por: Marcelo Paludetto</p>
-                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+        <article class="card-post">
+            <img src="imagens/acessibilidade.png" alt="Foto da autora Beatris" class="artigo-imagem">
+            <div class="artigo-conteudo">
+                <h2>O que é Acessibilidade Web?</h2>
+                <p class="artigo-autor">Por: Beatris Rangel</p>
+                <p>Garantir boa legibilidade, contraste adequado e navegação simples torna a web acessível para todas as pessoas, independente de suas limitações.</p>
+                <div class="interacoes">
+                    <button>❤️ <span>0</span></button>
+                    <button>👍 <span>0</span></button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card-post">
+            <img src="imagens/grid.png" alt="Foto do autor Lucas" class="artigo-imagem">
+            <div class="artigo-conteudo">
+                <h2>Por que aprender CSS Grid e Flexbox?</h2>
+                <p class="artigo-autor">Por: Lucas Silva</p>
+                <p>Organizar conteúdos em cards e criar layouts responsivos ficou muito mais fácil com as ferramentas modernas do CSS. Seu site se adapta a qualquer tela!</p>
                 <div class="interacoes">
                     <button>❤️ <span>0</span></button>
                     <button>👍 <span>0</span></button>
@@ -42,7 +58,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 - Criado por Mim</p>
+        <p>&copy; 2026 - Desenvolvido pelo Estudante</p>
     </footer>
 
     <script src="script.js"></script>
