@@ -3,118 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star Blog</title>
+  <title>Meu Blog Interativo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <h1>STAR BLOG</h1>
-    <p class="subtitle">Que a Força das Teorias esteja com você!</p>
+    <h1>Meu Blog</h1>
+    <button id="theme-toggle" class="btn-theme">🌙 Modo Escuro</button>
   </header>
 
-  <main class="grid-container">
+  <nav class="categories">
+    <button class="filter-btn active" data-category="todos">Todos</button>
+    <button class="filter-btn" data-category="tecnologia">Tecnologia</button>
+    <button class="filter-btn" data-category="jogos">Jogos</button>
+    <button class="filter-btn" data-category="cinema">Cinema</button>
+    <button class="filter-btn" data-category="musica">Música</button>
+    <button class="filter-btn" data-category="esportes">Esportes</button>
+  </nav>
+
+  <main class="posts-container">
     
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1579566346927-c68383817a25?w=500&q=80" alt="Darth Jar Jar" class="card-img">
-      <h2>Darth Jar Jar Binks</h2>
-      <p class="resumo">Jar Jar Binks fingia ser desastrado para esconder que era um Mestre Sith poderoso.</p>
-      
-      <div class="teoria-conteudo hidden" id="teoria1">
-        <p>A teoria afirma que acrobacias de Jar Jar e sua capacidade de manipular líderes eram uso consciente da Força para erguer o Império Sith sem levantar suspeitas.</p>
-        <a href="https://www.youtube.com/watch?v=8yy3q9f84EA" target="_blank" class="btn-youtube">📺 Ver Vídeo no YouTube</a>
-      </div>
-
-      <div class="acoes">
-        <button class="btn-revelar" onclick="toggleTeoria('teoria1')">Revelar Teoria</button>
-        <div class="feedback">
-          <button class="btn-like" onclick="curtir('like1')">👍 <span id="like1">0</span></button>
-          <button class="btn-dislike" onclick="descurtir('dislike1')">👎 <span id="dislike1">0</span></button>
-        </div>
+    <article class="post-card" data-category="tecnologia">
+      <img src="https://picsum.photos/400/220?random=1" alt="Tecnologia">
+      <div class="post-content">
+        <span class="tag">Tecnologia</span>
+        <h2>O Futuro da Inteligência Artificial</h2>
+        <p>Entenda como as novas ferramentas de IA estão transformando o desenvolvimento web e a rotina diária.</p>
+        <button class="read-btn" onclick="lerMais('O Futuro da IA')">Ler artigo</button>
       </div>
     </article>
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?w=500&q=80" alt="Mace Windu" class="card-img">
-      <h2>Mace Windu Vive?</h2>
-      <p class="resumo">A queda da janela em Coruscant não foi o fim do lendário Mestre Jedi do sabre roxo.</p>
-      
-      <div class="teoria-conteudo hidden" id="teoria2">
-        <p>Jedi usam a Força para amortecer quedas gigantescas. Muitos acreditam que Windu sobreviveu e viveu escondido planejando vingança contra os Sith.</p>
-        <a href="https://youtu.be/-xBRxofNI3Y?si=MPvZfgoDXf1_l9sh" target="_blank" class="btn-youtube">📺 Ver Vídeo no YouTube</a>
-      </div>
-
-      <div class="acoes">
-        <button class="btn-revelar" onclick="toggleTeoria('teoria2')">Revelar Teoria</button>
-        <div class="feedback">
-          <button class="btn-like" onclick="curtir('like2')">👍 <span id="like2">0</span></button>
-          <button class="btn-dislike" onclick="descurtir('dislike2')">👎 <span id="dislike2">0</span></button>
-        </div>
+    <article class="post-card" data-category="jogos">
+      <img src="https://picsum.photos/400/220?random=2" alt="Jogos">
+      <div class="post-content">
+        <span class="tag">Jogos</span>
+        <h2>Os Lançamentos Mais Aguardados do Ano</h2>
+        <p>Confira a lista dos games que prometem dominar os consoles e PCs nos próximos meses.</p>
+        <button class="read-btn" onclick="lerMais('Lançamentos de Games')">Ler artigo</button>
       </div>
     </article>
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&q=80" alt="Rey" class="card-img">
-      <h2>A Criação de Rey</h2>
-      <p class="resumo">Rey não é apenas neta de Palpatine, mas uma criação gerada diretamente pela Força.</p>
-      
-      <div class="teoria-conteudo hidden" id="teoria3">
-        <p>Assim como Anakin Skywalker, Rey pode ter sido um experimento da Força para reequilibrar o lado sombrio quando Darth Sidious tentou retornar.</p>
-        <a href="https://youtu.be/Aig6fa2IkIQ?si=rNAfxQlzEBXM8S0L" target="_blank" class="btn-youtube">📺 Ver Vídeo no YouTube</a>
-      </div>
-
-      <div class="acoes">
-        <button class="btn-revelar" onclick="toggleTeoria('teoria3')">Revelar Teoria</button>
-        <div class="feedback">
-          <button class="btn-like" onclick="curtir('like3')">👍 <span id="like3">0</span></button>
-          <button class="btn-dislike" onclick="descurtir('dislike3')">👎 <span id="dislike3">0</span></button>
-        </div>
+    <article class="post-card" data-category="cinema">
+      <img src="https://picsum.photos/400/220?random=3" alt="Cinema">
+      <div class="post-content">
+        <span class="tag">Cinema</span>
+        <h2>A Evolução dos Efeitos Especiais</h2>
+        <p>De maquetes físicas ao CGI avançado: como Hollywood cria cenários inacreditáveis.</p>
+        <button class="read-btn" onclick="lerMais('Efeitos no Cinema')">Ler artigo</button>
       </div>
     </article>
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&q=80" alt="Boba Fett" class="card-img">
-      <h2>Boba Fett & Sarlacc</h2>
-      <p class="resumo">Como o caçador de recompensas planejou sua própria sobrevivência no fosso do Sarlacc.</p>
-      
-      <div class="teoria-conteudo hidden" id="teoria4">
-        <p>Sua armadura de Beskar e seu arsenal de explosivos foram usados para abrir caminho no estômago da criatura, saindo antes de ser digerido por mil anos.</p>
-        <a href="https://youtu.be/9SMY3n8mFyQ?si=Ee58_o_awCc7LreM" target="_blank" class="btn-youtube">📺 Ver Vídeo no YouTube</a>
-      </div>
-
-      <div class="acoes">
-        <button class="btn-revelar" onclick="toggleTeoria('teoria4')">Revelar Teoria</button>
-        <div class="feedback">
-          <button class="btn-like" onclick="curtir('like4')">👍 <span id="like4">0</span></button>
-          <button class="btn-dislike" onclick="descurtir('dislike4')">👎 <span id="dislike4">0</span></button>
-        </div>
+    <article class="post-card" data-category="musica">
+      <img src="https://picsum.photos/400/220?random=4" alt="Música">
+      <div class="post-content">
+        <span class="tag">Música</span>
+        <h2>O Retorno Marcante dos Discos de Vinil</h2>
+        <p>Por que a busca pelo som analógico continua crescendo entre as novas gerações.</p>
+        <button class="read-btn" onclick="lerMais('Retorno do Vinil')">Ler artigo</button>
       </div>
     </article>
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500&q=80" alt="Grogu Baby Yoda" class="card-img">
-      <h2>Quem Salvou Grogu?</h2>
-      <p class="resumo">Grogu foi salvo do Templo Jedi por um Mestre lendário antes que Anakin o encontrasse.</p>
-      
-      <div class="teoria-conteudo hidden" id="teoria5">
-        <p>A teoria apoia que o Mestre Kelleran Beq uniu forças com guardas do templo para esconder Baby Yoda no momento exato em que a Ordem 66 foi executada.</p>
-        <a href="https://youtu.be/k0V63Dubw8U?si=azFZ8yBKp_nQ3qML" target="_blank" class="btn-youtube">📺 Ver Vídeo no YouTube</a>
-      </div>
-
-      <div class="acoes">
-        <button class="btn-revelar" onclick="toggleTeoria('teoria5')">Revelar Teoria</button>
-        <div class="feedback">
-          <button class="btn-like" onclick="curtir('like5')">👍 <span id="like5">0</span></button>
-          <button class="btn-dislike" onclick="descurtir('dislike5')">👎 <span id="dislike5">0</span></button>
-        </div>
+    <article class="post-card" data-category="esportes">
+      <img src="https://picsum.photos/400/220?random=5" alt="Esportes">
+      <div class="post-content">
+        <span class="tag">Esportes</span>
+        <h2>A Tecnologia no Desempenho Esportivo</h2>
+        <p>Sensores, trajes inteligentes e análises de dados revolucionando os treinos de alto rendimento.</p>
+        <button class="read-btn" onclick="lerMais('Tecnologia nos Esportes')">Ler artigo</button>
       </div>
     </article>
 
   </main>
 
   <footer>
-    <p>Criado por: <strong>Pedro Fernandes</strong> e <strong>Gustavo Coleti</strong></p>
-    <p>© Star Blog - Trabalho Escolar 1TB</p>
+    <p>&copy; 2026 - Criado para o VS Code</p>
   </footer>
 
   <script src="script.js"></script>

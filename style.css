@@ -1,161 +1,181 @@
-/* Fundo do Espaço */
-body {
-  background: #000 url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1600&q=80') repeat center center fixed;
-  background-size: cover;
-  color: #ffffff;
-  font-family: 'Segoe UI', Arial, sans-serif;
+/* Variáveis para facilidade na troca de temas */
+:root {
+  --bg-color: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --primary-color: #4a90e2;
+  --primary-hover: #357abd;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+}
+
+/* Tema Escuro */
+body.dark-mode {
+  --bg-color: #18191a;
+  --card-bg: #242526;
+  --text-color: #e4e6eb;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos Gerais */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
 }
 
 /* Cabeçalho */
 header {
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-bottom: 2px solid #ffe81f;
-}
-
-h1 {
-  color: #ffe81f;
-  font-size: 3rem;
-  margin: 0;
-  letter-spacing: 4px;
-  text-shadow: 0 0 10px rgba(255, 232, 31, 0.7);
-}
-
-.subtitle {
-  color: #ddd;
-  font-style: italic;
-  margin-top: 5px;
-}
-
-/* Disposição das 5 Teorias em Linha/Grade */
-.grid-container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto 20px auto;
+  padding: 10px 0;
+}
+
+.btn-theme {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-theme:hover {
+  transform: scale(1.05);
+  background-color: var(--primary-hover);
+}
+
+/* Filtros por Categorias */
+.categories {
+  display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 30px 15px;
-  max-width: 1400px;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--text-color);
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Container de Posts */
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Estilo do Card individual */
-.card {
-  background-color: rgba(20, 20, 20, 0.85);
-  border: 1px solid #444;
-  border-radius: 10px;
-  padding: 15px;
-  width: 240px; /* Mantém 5 colunas perfeitamente alinhadas em telas grandes */
+/* Card dos Artigos com Efeitos */
+.post-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
-  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.card:hover {
+/* Efeito Hover no Card */
+.post-card:hover {
   transform: translateY(-8px);
-  border-color: #ffe81f;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.card-img {
+.post-card img {
   width: 100%;
-  height: 140px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid #ffe81f;
+  transition: transform 0.3s ease;
 }
 
-.card h2 {
-  color: #4cc9f0;
-  font-size: 1.2rem;
-  margin: 12px 0 6px 0;
+.post-card:hover img {
+  transform: scale(1.03);
 }
 
-.resumo {
-  font-size: 0.85rem;
-  color: #ccc;
+.post-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tag {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.post-content h2 {
+  font-size: 1.3rem;
   margin-bottom: 10px;
 }
 
-/* Revelar Teoria */
-.hidden {
-  display: none;
+.post-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-bottom: 15px;
+  flex-grow: 1;
 }
 
-.teoria-conteudo {
-  background-color: rgba(35, 35, 35, 0.9);
+/* Botão do Post */
+.read-btn {
   padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
-  border-left: 3px solid #ffe81f;
-  font-size: 0.8rem;
-  animation: surgimento 0.4s ease;
-}
-
-@keyframes surgimento {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Botões */
-button, .btn-youtube {
-  background-color: #222;
-  color: #fff;
-  border: 1px solid #ffe81f;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: bold;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-button:hover {
-  background-color: #ffe81f;
-  color: #000;
-}
-
-.btn-youtube {
-  background-color: #e60000;
-  color: white;
   border: none;
-  margin-top: 8px;
-  width: 90%;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
-.btn-youtube:hover {
-  background-color: #ff3333;
+.read-btn:hover {
+  background-color: var(--primary-hover);
 }
 
-.acoes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.feedback {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.read-btn:active {
+  transform: scale(0.98);
 }
 
 /* Rodapé */
 footer {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-top: 1px solid #ffe81f;
-  color: #aaa;
-  font-size: 0.85rem;
-}
-
-footer strong {
-  color: #ffe81f;
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
