@@ -1,84 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Blog Interativo</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header>
-    <h1>Meu Blog</h1>
-    <button id="theme-toggle" class="btn-theme">🌙 Modo Escuro</button>
-  </header>
-
-  <nav class="categories">
-    <button class="filter-btn active" data-category="todos">Todos</button>
-    <button class="filter-btn" data-category="tecnologia">Tecnologia</button>
-    <button class="filter-btn" data-category="jogos">Jogos</button>
-    <button class="filter-btn" data-category="cinema">Cinema</button>
-    <button class="filter-btn" data-category="musica">Música</button>
-    <button class="filter-btn" data-category="esportes">Esportes</button>
-  </nav>
-
-  <main class="posts-container">
-    
-    <article class="post-card" data-category="tecnologia">
-      <img src="https://picsum.photos/400/220?random=1" alt="Tecnologia">
-      <div class="post-content">
-        <span class="tag">Tecnologia</span>
-        <h2>O Futuro da Inteligência Artificial</h2>
-        <p>Entenda como as novas ferramentas de IA estão transformando o desenvolvimento web e a rotina diária.</p>
-        <button class="read-btn" onclick="lerMais('O Futuro da IA')">Ler artigo</button>
-      </div>
-    </article>
-
-    <article class="post-card" data-category="jogos">
-      <img src="https://picsum.photos/400/220?random=2" alt="Jogos">
-      <div class="post-content">
-        <span class="tag">Jogos</span>
-        <h2>Os Lançamentos Mais Aguardados do Ano</h2>
-        <p>Confira a lista dos games que prometem dominar os consoles e PCs nos próximos meses.</p>
-        <button class="read-btn" onclick="lerMais('Lançamentos de Games')">Ler artigo</button>
-      </div>
-    </article>
-
-    <article class="post-card" data-category="cinema">
-      <img src="https://picsum.photos/400/220?random=3" alt="Cinema">
-      <div class="post-content">
-        <span class="tag">Cinema</span>
-        <h2>A Evolução dos Efeitos Especiais</h2>
-        <p>De maquetes físicas ao CGI avançado: como Hollywood cria cenários inacreditáveis.</p>
-        <button class="read-btn" onclick="lerMais('Efeitos no Cinema')">Ler artigo</button>
-      </div>
-    </article>
-
-    <article class="post-card" data-category="musica">
-      <img src="https://picsum.photos/400/220?random=4" alt="Música">
-      <div class="post-content">
-        <span class="tag">Música</span>
-        <h2>O Retorno Marcante dos Discos de Vinil</h2>
-        <p>Por que a busca pelo som analógico continua crescendo entre as novas gerações.</p>
-        <button class="read-btn" onclick="lerMais('Retorno do Vinil')">Ler artigo</button>
-      </div>
-    </article>
-
-    <article class="post-card" data-category="esportes">
-      <img src="https://picsum.photos/400/220?random=5" alt="Esportes">
-      <div class="post-content">
-        <span class="tag">Esportes</span>
-        <h2>A Tecnologia no Desempenho Esportivo</h2>
-        <p>Sensores, trajes inteligentes e análises de dados revolucionando os treinos de alto rendimento.</p>
-        <button class="read-btn" onclick="lerMais('Tecnologia nos Esportes')">Ler artigo</button>
-      </div>
-    </article>
-
-  </main>
-
-  <footer>
-    <p>&copy; 2026 - Criado para o VS Code</p>
-  </footer>
+<div id="modal-artigo" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="fecharModal()">&times;</span>
+      <h2 id="modal-titulo"></h2>
+      <img id="modal-imagem" src="" alt="Imagem do Artigo">
+      <p id="modal-texto"></p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
