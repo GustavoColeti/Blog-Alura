@@ -1,20 +1,22 @@
-/* Variáveis para facilidade na troca de temas */
+/* Variáveis com as imagens de fundo para cada modo */
 :root {
-  --bg-color: #f4f6f9;
-  --card-bg: #ffffff;
-  --text-color: #333333;
-  --primary-color: #4a90e2;
-  --primary-hover: #357abd;
-  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --bg-image: url('https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?q=80&w=1920&auto=format&fit=crop'); /* Imagem de Neve */
+  --card-bg: rgba(255, 255, 255, 0.9); /* Transparência para ver o fundo */
+  --text-color: #1a1a1a;
+  --primary-color: #2b6cb0;
+  --primary-hover: #1c4ed8;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   --border-radius: 12px;
 }
 
-/* Tema Escuro */
+/* Tema Escuro - Galáxia */
 body.dark-mode {
-  --bg-color: #18191a;
-  --card-bg: #242526;
-  --text-color: #e4e6eb;
-  --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  --bg-image: url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1920&auto=format&fit=crop'); /* Imagem de Galáxia */
+  --card-bg: rgba(30, 30, 40, 0.85); /* Transparência para o modo escuro */
+  --text-color: #f0f4f8;
+  --primary-color: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* Estilos Gerais */
@@ -27,9 +29,14 @@ body.dark-mode {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Mantém a imagem fixa ao rolar */
+  background-repeat: no-repeat;
   color: var(--text-color);
   padding: 20px;
+  min-height: 100vh;
 }
 
 /* Cabeçalho */
@@ -39,7 +46,10 @@ header {
   align-items: center;
   max-width: 1000px;
   margin: 0 auto 20px auto;
-  padding: 10px 0;
+  padding: 15px 20px;
+  background-color: var(--card-bg);
+  backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+  border-radius: var(--border-radius);
 }
 
 .btn-theme {
@@ -66,6 +76,10 @@ header {
   flex-wrap: wrap;
   max-width: 1000px;
   margin: 0 auto 30px auto;
+  padding: 10px;
+  background-color: var(--card-bg);
+  backdrop-filter: blur(5px);
+  border-radius: var(--border-radius);
 }
 
 .filter-btn {
@@ -94,9 +108,10 @@ header {
   margin: 0 auto;
 }
 
-/* Card dos Artigos com Efeitos */
+/* Card dos Artigos com Efeito Translucido */
 .post-card {
   background-color: var(--card-bg);
+  backdrop-filter: blur(8px);
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -108,7 +123,6 @@ header {
 /* Efeito Hover no Card */
 .post-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .post-card img {
@@ -146,7 +160,7 @@ header {
 .post-content p {
   font-size: 0.95rem;
   line-height: 1.5;
-  opacity: 0.85;
+  opacity: 0.9;
   margin-bottom: 15px;
   flex-grow: 1;
 }
@@ -175,7 +189,12 @@ header {
 footer {
   text-align: center;
   margin-top: 40px;
-  padding: 20px;
-  opacity: 0.7;
+  padding: 15px;
+  background-color: var(--card-bg);
+  backdrop-filter: blur(5px);
+  border-radius: var(--border-radius);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 0.9rem;
 }
