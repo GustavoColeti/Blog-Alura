@@ -1,14 +1,20 @@
 let usuarioLogado = null;
 let tamanhoFonteAtual = 16;
 
-// --- MODO ESCURO ---
+// --- ALTERNAR MODO CLARO / ESCURO ---
 const themeToggleBtn = document.getElementById('theme-toggle');
+
 themeToggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    themeToggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    
+    if (document.body.classList.contains('dark-mode')) {
+        themeToggleBtn.textContent = '☀️ Modo Claro';
+    } else {
+        themeToggleBtn.textContent = '🌙 Modo Escuro';
+    }
 });
 
-// --- GOOGLE SIGN-IN CALLBACK ---
+// --- CALLBACK DE AUTENTICAÇÃO DO GOOGLE ---
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -22,7 +28,7 @@ function handleCredentialResponse(response) {
     const data = parseJwt(response.credential);
     usuarioLogado = data.name;
     
-    // Ocultar botão de login e exibir nome do usuário
+    // Esconder botão do Google e exibir o nome do usuário logado
     const signinBtn = document.querySelector('.g_id_signin');
     if (signinBtn) signinBtn.style.display = 'none';
     
@@ -31,33 +37,35 @@ function handleCredentialResponse(response) {
     userSpan.classList.remove('escondido');
 }
 
-// --- SISTEMA DE LIKES (Exige login Google) ---
+// --- SISTEMA DE LIKES COM EXIGÊNCIA DE LOGIN GOOGLE ---
 function curtirPost(btn) {
     if (!usuarioLogado) {
-        alert("Você precisa se registrar / fazer login com a sua conta Google para curtir!");
+        alert("🔒 Você precisa fazer login com a sua conta do Google no topo da página para curtir os posts!");
         return;
     }
 
     const countSpan = btn.querySelector('.like-count');
-    let atual = parseInt(countSpan.textContent);
+    let totalLikes = parseInt(countSpan.textContent);
     
     if (btn.classList.contains('curtido')) {
         btn.classList.remove('curtido');
-        countSpan.textContent = atual - 1;
+        countSpan.textContent = totalLikes - 1;
     } else {
         btn.classList.add('curtido');
-        countSpan.textContent = atual + 1;
+        countSpan.textContent = totalLikes + 1;
     }
 }
 
-// --- BARRA DE PESQUISA FUNCIONAL (Pesquisa Nome Exato / Termo) ---
+// --- PESQUISA POR NOME EXATO DO ASSUNTO ---
 function filtrarPorPesquisa() {
-    const termo = document.getElementById('search-input').value.trim().toLowerCase();
+    const termoInput = document.getElementById('search-input').value.trim().toLowerCase();
     const posts = document.querySelectorAll('.post-card');
 
     posts.forEach(post => {
-        const titulo = post.getAttribute('data-titulo');
-        if (termo === "" || titulo.includes(termo)) {
+        const tituloPost = post.getAttribute('data-titulo');
+        
+        // Se a busca estiver vazia ou for igual/incluir o título digitado
+        if (termoInput === "" || tituloPost.includes(termoInput)) {
             post.classList.remove('escondido');
         } else {
             post.classList.add('escondido');
@@ -65,7 +73,13 @@ function filtrarPorPesquisa() {
     });
 }
 
-// --- PAINEL DE CONFIGURAÇÕES (Aumentar/Diminuir Fonte) ---
+// Resetar busca ao clicar em "Início" no menu
+function filtrarTodos() {
+    document.getElementById('search-input').value = "";
+    filtrarPorPesquisa();
+}
+
+// --- PAINEL DE CONFIGURAÇÕES (TAMANHO DE FONTE) ---
 function toggleConfiguracoes() {
     const panel = document.getElementById('settings-panel');
     panel.classList.toggle('escondido');
@@ -74,7 +88,7 @@ function toggleConfiguracoes() {
 function alterarFonte(delta) {
     tamanhoFonteAtual += delta * 2;
     if (tamanhoFonteAtual < 12) tamanhoFonteAtual = 12;
-    if (tamanhoFonteAtual > 24) tamanhoFonteAtual = 24;
+    if (tamanhoFonteAtual > 26) tamanhoFonteAtual = 26;
     document.documentElement.style.setProperty('--base-font-size', tamanhoFonteAtual + 'px');
 }
 
@@ -83,7 +97,7 @@ function resetarFonte() {
     document.documentElement.style.setProperty('--base-font-size', '16px');
 }
 
-// --- TELA / MODAL DE EXIBIÇÃO DE TEXTO ---
+// --- TELA MODAL (EXIBIÇÃO DOS TEXTOS DOS ASSUNTOS EM TELA CHEIA) ---
 function abrirModalPost(btn) {
     const postCard = btn.closest('.post-card');
     const titulo = postCard.querySelector('h2').innerText;

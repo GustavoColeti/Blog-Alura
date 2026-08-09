@@ -15,7 +15,7 @@
         </div>
 
         <nav class="nav-menu">
-            <button class="nav-btn active" onclick="filtrarCategoria('todos')">Início</button>
+            <button class="nav-btn active" onclick="filtrarTodos()">Início</button>
             <button class="nav-btn" onclick="abrirModalGeral('Teorias', 'Em breve: teorias sobre o futuro de Grogu, o Sabre Sombrio e o destino de Mandalore!')">Teorias</button>
             <button class="nav-btn" onclick="abrirModalGeral('Créditos', 'Desenvolvido por Gustavo Coleti e Pedro Fernandes do 1TB.<br>Universo criado por George Lucas / Jon Favreau.')">Créditos</button>
             <button class="nav-btn" onclick="toggleConfiguracoes()">⚙️ Configurações</button>
@@ -28,23 +28,23 @@
             </div>
             <div class="g_id_signin" data-type="standard" data-size="small" data-theme="outline"></div>
             <span id="user-name" class="user-name escondido"></span>
-            <button id="theme-toggle" class="btn-theme">🌙</button>
+            <button id="theme-toggle" class="btn-theme">🌙 Modo Escuro</button>
         </div>
     </header>
 
     <section class="toolbar">
         <div class="search-box">
-            <input type="text" id="search-input" placeholder="Pesquisar título do assunto..." oninput="filtrarPorPesquisa()">
-            <button onclick="filtrarPorPesquisa()">🔍 Buscar</button>
+            <input type="text" id="search-input" placeholder="Digite o nome exato do assunto do blog..." oninput="filtrarPorPesquisa()">
+            <button class="btn-primary" onclick="filtrarPorPesquisa()">🔍 Buscar</button>
         </div>
 
         <div id="settings-panel" class="settings-panel escondido">
             <h3>⚙️ Configurações de Leitura</h3>
             <div class="setting-item">
                 <label>Tamanho da Fonte:</label>
-                <button onclick="alterarFonte(1)">A+</button>
-                <button onclick="alterarFonte(-1)">A-</button>
-                <button onclick="resetarFonte()">Padrao</button>
+                <button class="btn-config" onclick="alterarFonte(1)">A+ (Aumentar)</button>
+                <button class="btn-config" onclick="alterarFonte(-1)">A- (Diminuir)</button>
+                <button class="btn-config btn-reset" onclick="resetarFonte()">Padrão</button>
             </div>
         </div>
     </section>
@@ -64,12 +64,12 @@
                 </div>
 
                 <div class="card-action-bar">
-                    <button class="like-btn" onclick="curtirPost(this)">❤️ <span class="like-count">0</span></button>
+                    <button class="like-btn" onclick="curtirPost(this)">❤️ Curtir (<span class="like-count">0</span>)</button>
                 </div>
 
                 <div class="card-buttons">
-                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Ler em Tela Cheia</button>
-                    <a href="https://youtu.be/b52nlWiER3I?si=KGKYfPGI0O8P6wpb" target="_blank" class="video-btn">▶ Vídeo</a>
+                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Revelar Texto em Tela Cheia</button>
+                    <a href="https://youtu.be/b52nlWiER3I?si=KGKYfPGI0O8P6wpb" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
                 </div>
             </div>
         </article>
@@ -83,16 +83,16 @@
 
                 <div class="texto-completo escondido">
                     <p>Batizado inicialmente pelo público como "Baby Yoda", o personagem Grogu tornou-se um dos maiores fenômenos de cultura pop dos últimos anos. Ele pertence à mesma espécie misteriosa e rara do lendário Mestre Yoda e, apesar de sua aparência infantil e vulnerável, Grogu já viveu por mais de 50 anos e possui uma forte conexão com a Força, sendo capaz de mover objetos grandes e curar ferimentos graves.</p>
-                    <p>Antes de encontrar Din Djarin, Grogu foi criado no Templo Jedi em Coruscant e precisou ser escondido após a Ordem 66. Ao longo de sua jornada na série, ele passa de um alvo indefeso a um aprendiz. Mesmo tendo a oportunidade de treinar com Luke Skywalker para se tornar um Jedi, Grogu escolhe retornar para os braços de seu protetor, sendo oficialmente adotado por Din Djarin e iniciando seu treinamento para seguir os costumes mandalorianos.</p>
+                    <p>Antes de encontrar Din Djarin, Grogu foi criado no Templo Jedi em Coruscant e precisou ser escondido após a Ordem 66. Ao longo de sua jornada na série, ele passa de um alvo indefeso a um aprendiz. Mesmo tendo a oportunidade de treinar com Luke Skywalker para se tornar um Jedi, Grogu escolhe retornar para os braços de seu protetor, sendo officially adotado por Din Djarin e iniciando seu treinamento para seguir os costumes mandalorianos.</p>
                 </div>
 
                 <div class="card-action-bar">
-                    <button class="like-btn" onclick="curtirPost(this)">❤️ <span class="like-count">0</span></button>
+                    <button class="like-btn" onclick="curtirPost(this)">❤️ Curtir (<span class="like-count">0</span>)</button>
                 </div>
 
                 <div class="card-buttons">
-                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Ler em Tela Cheia</button>
-                    <a href="https://youtu.be/PH93Z8BLSus?si=BtgWvjGXTdTwBFlC" target="_blank" class="video-btn">▶ Vídeo</a>
+                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Revelar Texto em Tela Cheia</button>
+                    <a href="https://youtu.be/PH93Z8BLSus?si=BtgWvjGXTdTwBFlC" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
                 </div>
             </div>
         </article>
@@ -110,12 +110,12 @@
                 </div>
 
                 <div class="card-action-bar">
-                    <button class="like-btn" onclick="curtirPost(this)">❤️ <span class="like-count">0</span></button>
+                    <button class="like-btn" onclick="curtirPost(this)">❤️ Curtir (<span class="like-count">0</span>)</button>
                 </div>
 
                 <div class="card-buttons">
-                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Ler em Tela Cheia</button>
-                    <a href="https://youtu.be/EhTTBlH6Q4w?si=K_6n7sMKMJpLZr3l" target="_blank" class="video-btn">▶ Vídeo</a>
+                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Revelar Texto em Tela Cheia</button>
+                    <a href="https://youtu.be/EhTTBlH6Q4w?si=K_6n7sMKMJpLZr3l" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
                 </div>
             </div>
         </article>
@@ -133,12 +133,12 @@
                 </div>
 
                 <div class="card-action-bar">
-                    <button class="like-btn" onclick="curtirPost(this)">❤️ <span class="like-count">0</span></button>
+                    <button class="like-btn" onclick="curtirPost(this)">❤️ Curtir (<span class="like-count">0</span>)</button>
                 </div>
 
                 <div class="card-buttons">
-                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Ler em Tela Cheia</button>
-                    <a href="https://youtu.be/vs-BC5S5xLo?si=p20tN_q1IxUMG13q" target="_blank" class="video-btn">▶ Vídeo</a>
+                    <button class="read-btn" onclick="abrirModalPost(this)">📖 Revelar Texto em Tela Cheia</button>
+                    <a href="https://youtu.be/vs-BC5S5xLo?si=p20tN_q1IxUMG13q" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
                 </div>
             </div>
         </article>
@@ -149,6 +149,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="fecharModal()">&times;</span>
             <h2 id="modal-title">Título</h2>
+            <hr class="modal-divider">
             <div id="modal-body">Conteúdo aqui...</div>
         </div>
     </div>

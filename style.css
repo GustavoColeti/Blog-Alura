@@ -1,30 +1,47 @@
-=:root {
-    --bg-image: url('https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?q=80&w=1920&auto=format&fit=crop');
-    --card-bg: rgba(255, 255, 255, 0.92);
-    --text-color: #1a1a1a;
-    --primary-color: #2b6cb0;
-    --primary-hover: #1c4ed8;
-    --btn-video: #cc0000;
-    --btn-video-hover: #990000;
-    --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+/* --- TEMA CLARO (BACKGROUND DE MONTANHA COM NEVE) --- */
+:root {
+    /* Imagem HD de montanha com neve no plano de fundo */
+    --bg-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop');
+    
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #0f172a;               /* Texto principal em tom azul escuro/chumbo bem legível */
+    --text-muted: #475569;
+    --primary-color: #1e40af;            /* Azul forte de alto contraste para botões */
+    --primary-hover: #1e3a8a;
+    --nav-btn-bg: #e2e8f0;               /* Fundo bem definido para os botões do menu no modo claro */
+    --nav-btn-text: #0f172a;
+    --nav-btn-border: #cbd5e1;
+    --input-bg: #ffffff;
+    --input-border: #94a3b8;
+    --btn-video: #c53030;
+    --btn-video-hover: #9b2c2c;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
     --border-radius: 12px;
     --base-font-size: 16px;
 }
 
+/* --- TEMA ESCURO (MONTANHA COM NEVE DE NOITE / GALÁXIA) --- */
 body.dark-mode {
-    --bg-image: url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1920&auto=format&fit=crop');
-    --card-bg: rgba(30, 30, 40, 0.90);
-    --text-color: #f0f4f8;
-    --primary-color: #8b5cf6;
-    --primary-hover: #7c3aed;
-    --shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    --bg-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920&auto=format&fit=crop');
+    --card-bg: rgba(15, 23, 42, 0.93);
+    --text-color: #f8fafc;
+    --text-muted: #cbd5e1;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --nav-btn-bg: #1e293b;
+    --nav-btn-text: #f8fafc;
+    --nav-btn-border: #475569;
+    --input-bg: #1e293b;
+    --input-border: #475569;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
 }
 
+/* RESETS E ESTILOS DE PÁGINA */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 html {
@@ -37,12 +54,13 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--text-color);
     padding: 20px;
     min-height: 100vh;
 }
 
-/* Header */
+/* CABEÇALHO */
 header {
     display: flex;
     flex-wrap: wrap;
@@ -51,12 +69,19 @@ header {
     gap: 15px;
     max-width: 1100px;
     margin: 0 auto 20px auto;
-    padding: 15px 20px;
+    padding: 16px 24px;
     background-color: var(--card-bg);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
+.logo-area h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+/* MENU DE NAVEGAÇÃO */
 .nav-menu {
     display: flex;
     gap: 10px;
@@ -64,47 +89,54 @@ header {
 }
 
 .nav-btn {
-    background: transparent;
-    border: 1px solid var(--primary-color);
-    color: var(--text-color);
-    padding: 8px 14px;
+    background-color: var(--nav-btn-bg);
+    border: 2px solid var(--nav-btn-border);
+    color: var(--nav-btn-text);
+    padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 0.9rem;
 }
 
 .nav-btn:hover, .nav-btn.active {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
+    border-color: var(--primary-color);
 }
 
 .user-area {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .user-name {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: bold;
 }
 
 .btn-theme {
-    padding: 8px 14px;
+    padding: 10px 16px;
     border: none;
     border-radius: 20px;
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     cursor: pointer;
+    font-weight: bold;
 }
 
-/* Barra de pesquisa e ferramentas */
+.btn-theme:hover {
+    background-color: var(--primary-hover);
+}
+
+/* BARRA DE FERRAMENTAS E PESQUISA */
 .toolbar {
     max-width: 1100px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 25px auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .search-box {
@@ -114,41 +146,78 @@ header {
 
 .search-box input {
     flex: 1;
-    padding: 12px 15px;
+    padding: 12px 18px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 2px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-color);
     font-size: 1rem;
+    font-weight: 500;
 }
 
-.search-box button {
-    padding: 12px 20px;
+.search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+.btn-primary {
+    padding: 12px 22px;
     border: none;
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
 }
 
-/* Painel de Configurações */
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* PAINEL DE CONFIGURAÇÕES */
 .settings-panel {
     background-color: var(--card-bg);
-    padding: 15px;
+    padding: 18px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 }
 
-.setting-item button {
-    padding: 6px 12px;
-    margin-left: 5px;
-    border: none;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+.settings-panel h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
-/* Container de Posts */
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-config {
+    padding: 8px 14px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-config:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-reset {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--input-border);
+}
+
+.btn-reset:hover {
+    background-color: var(--nav-btn-bg);
+}
+
+/* CONTAINER DE POSTS */
 .posts-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -169,7 +238,7 @@ header {
 
 .post-card img {
     width: 100%;
-    height: 200px;
+    height: 210px;
     object-fit: cover;
 }
 
@@ -182,26 +251,51 @@ header {
 
 .tag {
     font-size: 0.8rem;
-    font-weight: bold;
+    font-weight: 800;
     color: var(--primary-color);
     text-transform: uppercase;
     margin-bottom: 8px;
 }
 
+.post-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.resumo {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* BOTÃO DE LIKES */
 .card-action-bar {
-    margin: 10px 0;
+    margin: 12px 0;
 }
 
 .like-btn {
     background-color: #e11d48;
-    color: white;
+    color: #ffffff;
     border: none;
-    padding: 8px 12px;
+    padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.1s;
 }
 
+.like-btn:hover {
+    background-color: #be123c;
+}
+
+.like-btn.curtido {
+    background-color: #15803d; /* Fica verde após curtir */
+}
+
+/* GRUPO DE BOTÕES DO CARD */
 .card-buttons {
     display: flex;
     gap: 10px;
@@ -209,57 +303,80 @@ header {
 }
 
 .read-btn {
-    flex: 1;
-    padding: 10px;
+    flex: 1.2;
+    padding: 10px 12px;
     border: none;
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.88rem;
+}
+
+.read-btn:hover {
+    background-color: var(--primary-hover);
 }
 
 .video-btn {
     flex: 1;
-    padding: 10px;
+    padding: 10px 12px;
     background-color: var(--btn-video);
-    color: white;
+    color: #ffffff;
     text-align: center;
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
+    font-size: 0.88rem;
+    display: inline-block;
 }
 
-/* Modal / Tela de Exibição */
+.video-btn:hover {
+    background-color: var(--btn-video-hover);
+}
+
+/* MODAL DE TELA CHEIA */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.75);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 20px;
 }
 
 .modal-content {
     background-color: var(--card-bg);
+    color: var(--text-color);
     padding: 30px;
     border-radius: var(--border-radius);
-    max-width: 700px;
-    width: 90%;
-    max-height: 80vh;
+    max-width: 750px;
+    width: 100%;
+    max-height: 85vh;
     overflow-y: auto;
     position: relative;
+    box-shadow: var(--shadow);
+}
+
+.modal-divider {
+    margin: 15px 0;
+    border: 0;
+    height: 1px;
+    background: var(--input-border);
 }
 
 .close-btn {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
     cursor: pointer;
 }
 
@@ -270,8 +387,10 @@ header {
 footer {
     text-align: center;
     margin: 40px auto 0 auto;
-    padding: 15px;
+    padding: 18px;
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
     max-width: 1100px;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
