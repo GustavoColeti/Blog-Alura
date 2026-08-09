@@ -1,200 +1,200 @@
 /* Variáveis com as imagens de fundo para cada modo */
 :root {
-  --bg-image: url('https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?q=80&w=1920&auto=format&fit=crop'); /* Imagem de Neve */
-  --card-bg: rgba(255, 255, 255, 0.9); /* Transparência para ver o fundo */
-  --text-color: #1a1a1a;
-  --primary-color: #2b6cb0;
-  --primary-hover: #1c4ed8;
-  --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  --border-radius: 12px;
+    --bg-image: url('https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?q=80&w=1920&auto=format&fit=crop');
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --text-color: #1a1a1a;
+    --primary-color: #2b6cb0;
+    --primary-hover: #1c4ed8;
+    --btn-video: #cc0000;
+    --btn-video-hover: #990000;
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
 }
 
 /* Tema Escuro - Galáxia */
 body.dark-mode {
-  --bg-image: url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1920&auto=format&fit=crop'); /* Imagem de Galáxia */
-  --card-bg: rgba(30, 30, 40, 0.85); /* Transparência para o modo escuro */
-  --text-color: #f0f4f8;
-  --primary-color: #8b5cf6;
-  --primary-hover: #7c3aed;
-  --shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    --bg-image: url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1920&auto=format&fit=crop');
+    --card-bg: rgba(30, 30, 40, 0.85);
+    --text-color: #f0f4f8;
+    --primary-color: #8b5cf6;
+    --primary-hover: #7c3aed;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* Estilos Gerais */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Mantém a imagem fixa ao rolar */
-  background-repeat: no-repeat;
-  color: var(--text-color);
-  padding: 20px;
-  min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    padding: 20px;
+    min-height: 100vh;
 }
 
 /* Cabeçalho */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto 20px auto;
-  padding: 15px 20px;
-  background-color: var(--card-bg);
-  backdrop-filter: blur(5px); /* Efeito de vidro fosco */
-  border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    padding: 15px 20px;
+    background-color: var(--card-bg);
+    backdrop-filter: blur(5px);
+    border-radius: var(--border-radius);
 }
 
 .btn-theme {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 20px;
-  background-color: var(--primary-color);
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s, background-color 0.3s;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.3s;
 }
 
 .btn-theme:hover {
-  transform: scale(1.05);
-  background-color: var(--primary-hover);
-}
-
-/* Filtros por Categorias */
-.categories {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  margin: 0 auto 30px auto;
-  padding: 10px;
-  background-color: var(--card-bg);
-  backdrop-filter: blur(5px);
-  border-radius: var(--border-radius);
-}
-
-.filter-btn {
-  padding: 8px 16px;
-  border: 2px solid var(--primary-color);
-  background: transparent;
-  color: var(--text-color);
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  background-color: var(--primary-color);
-  color: white;
+    transform: scale(1.05);
+    background-color: var(--primary-hover);
 }
 
 /* Container de Posts */
 .posts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1000px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-/* Card dos Artigos com Efeito Translucido */
+/* Card dos Artigos */
 .post-card {
-  background-color: var(--card-bg);
-  backdrop-filter: blur(8px);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
+    background-color: var(--card-bg);
+    backdrop-filter: blur(8px);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Efeito Hover no Card */
 .post-card:hover {
-  transform: translateY(-8px);
+    transform: translateY(-5px);
 }
 
 .post-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.post-card:hover img {
-  transform: scale(1.03);
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .post-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .tag {
-  align-self: flex-start;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  text-transform: uppercase;
-  margin-bottom: 8px;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .post-content h2 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-.post-content p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.9;
-  margin-bottom: 15px;
-  flex-grow: 1;
+.resumo {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    margin-bottom: 15px;
 }
 
-/* Botão do Post */
+.texto-completo {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.texto-completo p {
+    margin-bottom: 10px;
+}
+
+/* Classe para esconder/mostrar o texto completo */
+.escondido {
+    display: none;
+}
+
+/* Grupo de Botões */
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
 .read-btn {
-  padding: 10px;
-  border: none;
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s, transform 0.1s;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
 }
 
 .read-btn:hover {
-  background-color: var(--primary-hover);
+    background-color: var(--primary-hover);
 }
 
-.read-btn:active {
-  transform: scale(0.98);
+.video-btn {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--btn-video);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.video-btn:hover {
+    background-color: var(--btn-video-hover);
 }
 
 /* Rodapé */
 footer {
-  text-align: center;
-  margin-top: 40px;
-  padding: 15px;
-  background-color: var(--card-bg);
-  backdrop-filter: blur(5px);
-  border-radius: var(--border-radius);
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 0.9rem;
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px;
+    background-color: var(--card-bg);
+    backdrop-filter: blur(5px);
+    border-radius: var(--border-radius);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9rem;
 }

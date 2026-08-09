@@ -1,85 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Blog Interativo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog The Mandalorian</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Meu Blog</h1>
-    <button id="theme-toggle" class="btn-theme">🌙 Modo Escuro</button>
-  </header>
+    <header>
+        <h1>Blog The Mandalorian</h1>
+        <button id="theme-toggle" class="btn-theme">🌙 Modo Escuro</button>
+    </header>
 
-  <nav class="categories">
-    <button class="filter-btn active" data-category="todos">Todos</button>
-    <button class="filter-btn" data-category="tecnologia">Tecnologia</button>
-    <button class="filter-btn" data-category="jogos">Jogos</button>
-    <button class="filter-btn" data-category="cinema">Cinema</button>
-    <button class="filter-btn" data-category="musica">Música</button>
-    <button class="filter-btn" data-category="esportes">Esportes</button>
-  </nav>
+    <main class="posts-container">
 
-  <main class="posts-container">
-    
-    <article class="post-card" data-category="tecnologia">
-      <img src="https://picsum.photos/400/220?random=1" alt="Tecnologia">
-      <div class="post-content">
-        <span class="tag">Tecnologia</span>
-        <h2>O Futuro da Inteligência Artificial</h2>
-        <p>Entenda como as novas ferramentas de IA estão transformando o desenvolvimento web e a rotina diária.</p>
-        <button class="read-btn" onclick="lerMais('O Futuro da IA')">Ler artigo</button>
-      </div>
-    </article>
+        <article class="post-card">
+            <img src="https://www.uhdpaper.com/2023/01/the-mandalorian-season-3-4k-9591j.html?m=0" alt="Quem é o Mandaloriano">
+            <div class="post-content">
+                <span class="tag">Personagem</span>
+                <h2>1. Quem é o Mandaloriano? A Trajetória de Din Djarin</h2>
+                
+                <p class="resumo">
+                    O protagonista da série, conhecido popularmente como "O Mandaloriano", chama-se Din Djarin.
+                </p>
 
-    <article class="post-card" data-category="jogos">
-      <img src="https://picsum.photos/400/220?random=2" alt="Jogos">
-      <div class="post-content">
-        <span class="tag">Jogos</span>
-        <h2>Os Lançamentos Mais Aguardados do Ano</h2>
-        <p>Confira a lista dos games que prometem dominar os consoles e PCs nos próximos meses.</p>
-        <button class="read-btn" onclick="lerMais('Lançamentos de Games')">Ler artigo</button>
-      </div>
-    </article>
+                <div class="texto-completo escondido">
+                    <p>O protagonista da série, conhecido popularmente como "O Mandaloriano", chama-se Din Djarin. Ele não nasceu no planeta Mandalore; na verdade, ele foi um "enjeitado", uma criança órfã resgatada por guerreiros mandalorianos durante as Guerras Clônicas. Criado sob as rígidas tradições de uma seita conhecida como a Tribo, ele se tornou um caçador de recompensas habilidoso e solitário, operando nas bordas externas da galáxia após a queda do Império Galáctico.</p>
+                    <p>A trajetória de Din Djarin muda drasticamente quando ele aceita uma missão misteriosa que o leva a encontrar uma criatura da mesma espécie do mestre Yoda. Em vez de entregar o alvo para receber sua recompensa, o Mandaloriano decide quebrar o código da sua guilda para proteger a criança, iniciando uma jornada de transformação que o força a questionar suas próprias crenças e a assumir o papel de pai e protetor.</p>
+                </div>
 
-    <article class="post-card" data-category="cinema">
-      <img src="https://picsum.photos/400/220?random=3" alt="Cinema">
-      <div class="post-content">
-        <span class="tag">Cinema</span>
-        <h2>A Evolução dos Efeitos Especiais</h2>
-        <p>De maquetes físicas ao CGI avançado: como Hollywood cria cenários inacreditáveis.</p>
-        <button class="read-btn" onclick="lerMais('Efeitos no Cinema')">Ler artigo</button>
-      </div>
-    </article>
+                <div class="card-buttons">
+                    <button class="read-btn" onclick="toggleTexto(this)">Revelar texto</button>
+                    <a href="https://youtu.be/b52nlWiER3I?si=KGKYfPGI0O8P6wpb" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
+                </div>
+            </div>
+        </article>
 
-    <article class="post-card" data-category="musica">
-      <img src="https://picsum.photos/400/220?random=4" alt="Música">
-      <div class="post-content">
-        <span class="tag">Música</span>
-        <h2>O Retorno Marcante dos Discos de Vinil</h2>
-        <p>Por que a busca pelo som analógico continua crescendo entre as novas gerações.</p>
-        <button class="read-btn" onclick="lerMais('Retorno do Vinil')">Ler artigo</button>
-      </div>
-    </article>
+        <article class="post-card">
+            <img src="https://canaltech.com.br/series/grogu-como-e-feito-o-baby-yoda-de-the-mandalorian/" alt="O Fenômeno Grogu">
+            <div class="post-content">
+                <span class="tag">Fenômeno</span>
+                <h2>2. O Fenômeno Grogu: De "Baby Yoda" a Aprendiz Mandaloriano</h2>
+                
+                <p class="resumo">
+                    Batizado inicialmente pelo público como "Baby Yoda", o personagem Grogu tornou-se um dos maiores fenômenos da cultura pop.
+                </p>
 
-    <article class="post-card" data-category="esportes">
-      <img src="https://picsum.photos/400/220?random=5" alt="Esportes">
-      <div class="post-content">
-        <span class="tag">Esportes</span>
-        <h2>A Tecnologia no Desempenho Esportivo</h2>
-        <p>Sensores, trajes inteligentes e análises de dados revolucionando os treinos de alto rendimento.</p>
-        <button class="read-btn" onclick="lerMais('Tecnologia nos Esportes')">Ler artigo</button>
-      </div>
-    </article>
+                <div class="texto-completo escondido">
+                    <p>Batizado inicialmente pelo público como "Baby Yoda", o personagem Grogu tornou-se um dos maiores fenômenos de cultura pop dos últimos anos. Ele pertence à mesma espécie misteriosa e rara do lendário Mestre Yoda e, apesar de sua aparência infantil e vulnerável, Grogu já viveu por mais de 50 anos e possui uma forte conexão com a Força, sendo capaz de mover objetos grandes e curar ferimentos graves.</p>
+                    <p>Antes de encontrar Din Djarin, Grogu foi criado no Templo Jedi em Coruscant e precisou ser escondido após a Ordem 66. Ao longo de sua jornada na série, ele passa de um alvo indefeso a um aprendiz. Mesmo tendo a oportunidade de treinar com Luke Skywalker para se tornar um Jedi, Grogu escolhe retornar para os braços de seu protetor, sendo oficialmente adotado por Din Djarin e iniciando seu treinamento para seguir os costumes mandalorianos.</p>
+                </div>
 
-  </main>
+                <div class="card-buttons">
+                    <button class="read-btn" onclick="toggleTexto(this)">Revelar texto</button>
+                    <a href="https://youtu.be/PH93Z8BLSus?si=BtgWvjGXTdTwBFlC" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
+                </div>
+            </div>
+        </article>
 
-  <footer>
-    <p>&copy; 2026 - Criado por Gustavo Coleti e Pedro Fernandes do 1TB</p>
-  </footer>
+        <article class="post-card">
+            <img src="https://sociedadejedi.com.br/2019/08/29/the-mandalorian-confiram-a-armadura-em-detalhes/" alt="Armadura de Beskar">
+            <div class="post-content">
+                <span class="tag">Design Visual</span>
+                <h2>4. A Armadura de Beskar: O Design Visual da Série</h2>
+                
+                <p class="resumo">
+                    Um dos elementos visuais mais marcantes e simbólicos de The Mandalorian é a armadura do protagonista, feita de Beskar.
+                </p>
 
-  <script src="script.js"></script>
+                <div class="texto-completo escondido">
+                    <p>Um dos elementos visuais mais marcantes e simbólicos de The Mandalorian é a armadura do protagonista, feita de Beskar. O Beskar é um metal extremamente raro e valioso, nativo do planeta Mandalore, conhecido por sua resistência lendária. Ele é capaz de suportar disparos de blasters e até mesmo resistir a golpes diretos de sabres de luz, o que torna os guerreiros mandalorianos oponentes temíveis.</p>
+                    <p>No início da série, Din Djarin veste uma armadura remendada com peças de outros metais. Conforme ele cumpre missões perigosas, ele recebe placas de Beskar puro como pagamento, que são fundidas pela Armadora para criar seu traje prateado e reluzente. Além da proteção física, a evolução da armadura funciona como um indicador visual do status e das conquistas do personagem dentro da narrativa.</p>
+                </div>
+
+                <div class="card-buttons">
+                    <button class="read-btn" onclick="toggleTexto(this)">Revelar texto</button>
+                    <a href="https://youtu.be/EhTTBlH6Q4w?si=K_6n7sMKMJpLZr3l" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="post-card">
+            <img src="https://olhardigital.com.br/2025/10/26/cinema-e-streaming/curte-star-wars-veja-o-significado-da-cor-de-cada-sabre-de-luz/" alt="Aliados e Inimigos">
+            <div class="post-content">
+                <span class="tag">Universo</span>
+                <h2>5. Aliados e Inimigos de Peso na Galáxia</h2>
+                
+                <p class="resumo">
+                    A jornada do Mandaloriano é marcada por encontros com personagens que moldam o destino da galáxia.
+                </p>
+
+                <div class="texto-completo escondido">
+                    <p>A jornada do Mandaloriano é marcada por encontros com personagens que moldam o destino da galáxia. Entre os principais aliados está Bo-Katan Kryze, uma líder mandaloriana de linhagem real que busca unificar seu povo destruído e recuperar o trono de Mandalore. Outros aliados importantes incluem Greef Karga, o líder da guilda de caçadores de recompensa que se torna o magistrado de Nevarro, e a Armadora, que atua como a guia espiritual e técnica da seita de Din Djarin.</p>
+                    <p>Do lado dos antagonistas, o principal perigo é representado por Moff Gideon, um ambicioso líder remanescente do Império Galáctico. Gideon lidera uma facção imperial secreta e busca capturar Grogu para realizar experimentos com seu sangue rico em "Midi-chlorians". Para consolidar seu poder, ele chega a empunhar o Sabre Sombrio (Darksaber), uma arma ancestral que simboliza o direito de governar o planeta Mandalore.</p>
+                </div>
+
+                <div class="card-buttons">
+                    <button class="read-btn" onclick="toggleTexto(this)">Revelar texto</button>
+                    <a href="https://youtu.be/vs-BC5S5xLo?si=p20tN_q1IxUMG13q" target="_blank" class="video-btn">▶ Assistir Vídeo</a>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Criado por Gustavo Coleti e Pedro Fernandes do 1TB [cite: 1]</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
