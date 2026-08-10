@@ -1,7 +1,7 @@
 /* --- TEMA CLARO (BACKGROUND DE MONTANHA COM NEVE) --- */
 :root {
     /* Imagem HD de montanha com neve no plano de fundo */
-    --bg-image: url('https://github.com/GustavoColeti/Blog-Alura/blob/main/istockphoto-168480217-612x612.jpg?raw=true');
+    --bg-image: url('https://raw.githubusercontent.com/GustavoColeti/Blog-Alura/refs/heads/main/premium_photo-1673859054724-d3ce699da39d.avif');
     
     --card-bg: rgba(255, 255, 255, 0.95);
     --text-color: #0f172a;               /* Texto principal em tom azul escuro/chumbo bem legível */
