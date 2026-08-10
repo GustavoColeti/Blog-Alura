@@ -22,7 +22,7 @@
 
 /* --- TEMA ESCURO (MONTANHA COM NEVE DE NOITE / GALÁXIA) --- */
 body.dark-mode {
-    --bg-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920&auto=format&fit=crop');
+    --bg-image: url('https://github.com/GustavoColeti/Blog-Alura/blob/main/2YSIF5.jpg?raw=true');
     --card-bg: rgba(15, 23, 42, 0.93);
     --text-color: #f8fafc;
     --text-muted: #cbd5e1;
